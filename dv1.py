@@ -41,3 +41,9 @@ plt.show()
 sns.histplot(df['fare'], bins=30)
 plt.title("Fare Distribution with Bins")
 plt.show()
+
+sns.pairplot(df)
+plt.show()
+
+sns.jointplot(df)
+plt.show()
