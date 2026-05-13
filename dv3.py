@@ -15,8 +15,13 @@ print("\nFeatures and Data Types:")
 print(df.dtypes)
 
 # 5. Histogram for all features
-df.hist(bins=20, figsize=(10, 8))
+df.hist(bins=20, figsize=(10,8))
 plt.suptitle("Histogram of Iris Features")
+plt.show()
+
+
+sns.histplot(x='sepal_length', bins=20, data=df, kde=True)
+plt.suptitle("Histogram of iris feature")
 plt.show()
 
 # 6. Boxplot for all features
@@ -27,4 +32,7 @@ plt.show()
 
 
 sns.pairplot(df)
+plt.show()
+
+sns.jointplot(df)
 plt.show()
