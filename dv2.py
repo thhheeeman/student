@@ -19,3 +19,26 @@ plt.ylabel("Age")
 
 # 6. Show plot
 plt.show()
+
+
+
+sns.violinplot(x='sex',y='age',hue= 'survived',data=df)
+plt.title("Distribution of Age by Gender and Survival Status")
+plt.xlabel("Gender")
+plt.ylabel("Age")
+plt.show()
+
+
+
+sns.stripplot(x='sex',y='age',data=df, hue='survived')
+plt.title("Distribution of Age by Gender and Survival Status")
+plt.xlabel("Gender")
+plt.ylabel("Age")
+plt.show()
+
+
+sns.pairplot(df)
+plt.show()
+
+sns.jointplot(df)
+plt.show()
