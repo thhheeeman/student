@@ -18,23 +18,22 @@ ENTER
 CTRL + X
 
 
-#5. Inside spark-shell type:
+// Read input file
 val inputFile = sc.textFile("input.txt")
 
-#6. **🔹 4. Display File Content**
-inputFile.collect.foreach(println)
+// Split lines into words
+val words = inputFile.flatMap(line => line.split(" "))
 
-#7.  5. MapReduce Program (MAIN CODE)
-val counts = inputFile
-.flatMap(line => line.split(" "))
-.map(word => (word,1))
-.reduceByKey(_ + _)
+// Assign count 1 to each word
+val wordPairs = words.map(word => (word, 1))
 
-#8. Disply Output
-counts.collect.foreach(println)
+// Count occurrences of each word
+val counts = wordPairs.reduceByKey((a, b) => a + b)
 
+// Display output
+counts.collect().foreach(println)
 
-#Save Output
+// Save output
 counts.saveAsTextFile("output")
 
 
@@ -84,3 +83,26 @@ counts.saveAsTextFile("output")
 (high,1)
 (Memory,1)
 (low,1)
+
+
+
+
+
+
+
+
+
+
+
+
+----------Code 2
+
+
+
+val numbers = sc.parallelize(List(1,2,3,4,5,6,7,8,9,10))
+
+val evenNumbers = numbers.filter(x => x % 2 == 0)
+
+val squares = evenNumbers.map(x => x * x)
+
+squares.collect.foreach(println)
